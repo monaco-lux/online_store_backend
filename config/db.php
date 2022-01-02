@@ -9,8 +9,8 @@
 
     public function connect()
     {
-      $conn_string = "mysql:host=$this->host;dbname=$this->dbname";
-      $conn = new PDO($conn_str,$this->user, $this->pass);
+      $conn_string = "mysql:dbname=$this->dbname;host=$this->host";
+      $conn = new PDO($conn_string,$this->user, $this->pass);
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
       return $conn;
