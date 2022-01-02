@@ -6,8 +6,6 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require './vendor/autoload.php';
 require './config/db.php';
 
-$app = new \Slim\App;
-
 require './routes/product.php';
 
 
