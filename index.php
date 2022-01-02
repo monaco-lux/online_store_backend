@@ -6,6 +6,10 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require './vendor/autoload.php';
 require './config/db.php';
 
+//authenticator
+
+
+// routes
 require './routes/product.php';
 
 

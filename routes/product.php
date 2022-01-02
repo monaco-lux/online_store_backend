@@ -7,7 +7,7 @@ $app = new \Slim\App;
 
 // all entries
 
-$app->get('/products/all', function (Request $request, Response $response) {
+$app->get('/api/products/all', function (Request $request, Response $response) {
     $sql = "SELECT * FROM product_endpoint";
 
     try
@@ -35,7 +35,7 @@ $app->get('/products/all', function (Request $request, Response $response) {
 
 // single entry only
 
-$app->get('/products/{id}', function (Request $request, Response $response, array $args) {
+$app->get('/api/products/{id}', function (Request $request, Response $response, array $args) {
     $id = $args['id'];
     $sql = "SELECT * FROM product_endpoint WHERE id = $id";
 
@@ -64,7 +64,7 @@ $app->get('/products/{id}', function (Request $request, Response $response, arra
 
 // add products
 
-$app->post('/products/add', function (Request $request, Response $response, array $args) {
+$app->post('/api/products/add', function (Request $request, Response $response, array $args) {
     $name = $request->getParam('name');
     $description = $request->getParam('description');
     $image = $request->getParam('image');
@@ -103,7 +103,7 @@ $app->post('/products/add', function (Request $request, Response $response, arra
 });
 
 // delete product
-$app->delete('/products/delete/{id}', function (Request $request, Response $response, array $args) {
+$app->delete('/api/products/delete/{id}', function (Request $request, Response $response, array $args) {
     $id = $args['id'];
     $sql = "DELETE FROM product_endpoint WHERE id = $id";
 
