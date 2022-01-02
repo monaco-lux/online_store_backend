@@ -11,6 +11,7 @@ require './config/db.php';
 
 // routes
 require './routes/product.php';
+require './routes/login.php';
 
 
 // run app
