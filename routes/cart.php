@@ -43,23 +43,11 @@ $app->post('/api/cart/add', function (Request $request, Response $response, arra
     $user_id = $request->getParam('user_id');
 
     $sql = "INSERT INTO cart_endpoint (product_id,user_id,add_remove) VALUES (:product_id, :user_id, 'add')";
-    $count = "SELECT COUNT(*) FROM cart_endpoint where user_id = :user_id";
+
     try
     {
       $db = new DB();
       $conn = $db->connect();
-
-      $stmtcheck = $conn->prepare($count);
-      $stmtcheck->bindParam(':user_id',$user_id);
-      $stmtcheck->execute();
-      if($stmtcheck->rowCount() > 20)
-      {
-        return $response
-          ->withHeader('content-type', 'application/json')
-          ->withStatus(500);
-      }
-
-      $stmtcheck = null;
 
       $stmt = $conn->prepare($sql);
       $stmt->bindParam(':product_id',$product_id);
