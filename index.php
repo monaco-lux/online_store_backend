@@ -13,6 +13,7 @@ require './config/db.php';
 require './routes/product.php';
 require './routes/login.php';
 require './routes/cart.php';
+require './routes/wishlist.php';
 
 
 // run app
